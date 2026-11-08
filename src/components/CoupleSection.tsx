@@ -1,6 +1,7 @@
 import React from 'react';
 import { weddingData } from '../data/weddingData';
 import { WatercolorBotanicalWreath, GoldFlourishDivider } from './FloralDecorations';
+import couplePortrait from '../assets/images/wedding_couple_portrait_1793822191231.jpg';
 
 export const CoupleSection: React.FC = () => {
   const { couple } = weddingData;
@@ -25,7 +26,7 @@ export const CoupleSection: React.FC = () => {
             <div className="relative w-56 h-56 sm:w-68 sm:h-68 rounded-full overflow-hidden p-1.5 border-2 border-[#D4AF37]/50 shadow-inner bg-[#FAF7F2]">
               <div className="w-full h-full rounded-full overflow-hidden relative shadow-md">
                 <img
-                  src="/src/assets/images/wedding_couple_portrait_1793822191231.jpg"
+                  src={couplePortrait}
                   alt={`${couple.brideFirst} and ${couple.groomFirst} in a romantic botanical garden`}
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover object-center filter saturate-[0.92] contrast-[1.03] transition-transform duration-700 hover:scale-105"

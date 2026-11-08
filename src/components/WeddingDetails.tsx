@@ -2,6 +2,7 @@ import React from 'react';
 import { weddingData } from '../data/weddingData';
 import { GoldFlourishDivider, FloralCorner } from './FloralDecorations';
 import { MapPin, Clock, ExternalLink } from 'lucide-react';
+import weddingEstateVenue from '../assets/images/wedding_estate_venue_1793822205059.jpg';
 
 export const WeddingDetails: React.FC = () => {
   const { ceremony, reception, venue } = weddingData;
@@ -91,7 +92,7 @@ export const WeddingDetails: React.FC = () => {
         {/* Venue Photographic Showcase */}
         <div className="relative w-full h-56 sm:h-72 rounded-xl overflow-hidden border border-[#D9CBB7] shadow-md group">
           <img
-            src="/src/assets/images/wedding_estate_venue_1793822205059.jpg"
+            src={weddingEstateVenue}
             alt={`${venue.name} scenic estate gardens`}
             referrerPolicy="no-referrer"
             className="w-full h-full object-cover object-center filter saturate-[0.95] group-hover:scale-105 transition-transform duration-700"

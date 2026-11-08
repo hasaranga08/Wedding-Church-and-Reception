@@ -10,6 +10,7 @@ import { RsvpSection } from './components/RsvpSection';
 import { ThankYouSection } from './components/ThankYouSection';
 import { AudioPlayer } from './components/AudioPlayer';
 import { FloatingControls } from './components/FloatingControls';
+import { getAssetUrl } from './utils/assets';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -171,7 +172,7 @@ export default function App() {
         <div className="relative w-full h-[100dvh] max-w-[540px] md:max-w-[620px] flex items-center justify-center">
           <img
             ref={bgImgRef}
-            src="/assets/aistudio/AEA657B5-41A8-44A6-89F1-20751E733C74_80b10421.png"
+            src={getAssetUrl('assets/aistudio/AEA657B5-41A8-44A6-89F1-20751E733C74_80b10421.png')}
             alt=""
             className="w-full h-full object-contain select-none"
             onLoad={updateBounds}

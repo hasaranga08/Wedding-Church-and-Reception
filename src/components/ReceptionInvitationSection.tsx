@@ -1,6 +1,7 @@
 import React from 'react';
 import { MapPin, Clock, Calendar as CalendarIcon, ExternalLink } from 'lucide-react';
 import { GoldFlourishDivider } from './FloralDecorations';
+import auricBallroom from '../assets/images/auric_grand_ballroom_1794131669751.jpg';
 
 /**
  * Section 4 – Reception Invitation
@@ -53,7 +54,7 @@ export const ReceptionInvitationSection: React.FC = () => {
       <div className="my-6 max-w-[310px] sm:max-w-[360px] mx-auto">
         <div className="relative aspect-[16/9] rounded-2xl overflow-hidden border border-[#ECC880]/60 shadow-[0_10px_30px_rgba(0,0,0,0.55)] group">
           <img
-            src="/src/assets/images/auric_grand_ballroom_1794131669751.jpg"
+            src={auricBallroom}
             alt="Auric Grand Ballroom, Negombo, Sri Lanka"
             referrerPolicy="no-referrer"
             className="w-full h-full object-cover object-center filter contrast-[1.02] brightness-[1.01] group-hover:scale-105 transition-transform duration-700"

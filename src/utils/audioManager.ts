@@ -8,8 +8,11 @@
  * - Handled via native HTML5 Audio singleton for optimal mobile (iOS Safari & Android Chrome) performance
  */
 
-export const WEDDING_AUDIO_SRC =
-  '/assets/aistudio/Y2Mate.is_-_The_Wedding_Song___Mathakaida_Ada_Wage___Meena_Prasadini_6608321d.mp3';
+import { getAssetUrl } from './assets';
+
+export const WEDDING_AUDIO_SRC = getAssetUrl(
+  'assets/aistudio/Y2Mate.is_-_The_Wedding_Song___Mathakaida_Ada_Wage___Meena_Prasadini_6608321d.mp3'
+);
 
 class AudioManager {
   private audio: HTMLAudioElement | null = null;

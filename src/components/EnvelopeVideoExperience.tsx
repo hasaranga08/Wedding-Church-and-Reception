@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { Sparkles } from 'lucide-react';
 import { audioManager } from '../utils/audioManager';
+import { getAssetUrl } from '../utils/assets';
 
 interface EnvelopeVideoExperienceProps {
   onComplete: () => void;
@@ -201,8 +202,8 @@ export const EnvelopeVideoExperience: React.FC<EnvelopeVideoExperienceProps> = (
         {/* 1. ACTUAL ENVELOPE-OPENING VIDEO */}
         <video
           ref={videoRef}
-          src="/assets/aistudio/Envelope_with_rings_b7a3117d.mp4"
-          poster="/assets/aistudio/envelope_rings_first_frame.jpg"
+          src={getAssetUrl('assets/aistudio/Envelope_with_rings_b7a3117d.mp4')}
+          poster={getAssetUrl('assets/aistudio/envelope_rings_first_frame.jpg')}
           muted
           playsInline
           preload="auto"

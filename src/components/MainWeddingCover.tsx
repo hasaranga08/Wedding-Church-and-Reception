@@ -1,6 +1,7 @@
 import React from 'react';
 import { weddingData } from '../data/weddingData';
 import { GoldFlourishDivider } from './FloralDecorations';
+import couplePortrait from '../assets/images/wedding_couple_portrait_1793822191231.jpg';
 
 export const MainWeddingCover: React.FC = () => {
   const { couple, date, venue, coverMessage } = weddingData;
@@ -40,7 +41,7 @@ export const MainWeddingCover: React.FC = () => {
       <div className="relative z-10 my-6 sm:my-8 max-w-[240px] sm:max-w-[270px] mx-auto">
         <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border border-[#ECC880]/60 shadow-[0_12px_40px_rgba(0,0,0,0.65)] group">
           <img
-            src="/src/assets/images/wedding_couple_portrait_1793822191231.jpg"
+            src={couplePortrait}
             alt={`${couple.brideFirst} and ${couple.groomFirst}`}
             referrerPolicy="no-referrer"
             className="w-full h-full object-cover object-center filter saturate-[0.96] contrast-[1.03] group-hover:scale-105 transition-transform duration-700"
