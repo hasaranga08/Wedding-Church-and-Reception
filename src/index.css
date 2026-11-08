@@ -1,0 +1,149 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-plum-base: #140513;
+    --color-plum-surface: #1E0A1D;
+    --color-plum-card: #250D23;
+    --color-plum-elevated: #331330;
+    --color-gold: #ECC880;
+    --color-gold-dark: #A8833C;
+    --color-gold-light: #FFF2CC;
+    --color-ivory: #FAF6EE;
+    --color-ivory-muted: #D6C7B7;
+  }
+
+  body {
+    background-color: var(--color-plum-base);
+    color: var(--color-ivory);
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+.font-serif-luxury {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+.font-script-romantic {
+  font-family: 'Pinyon Script', cursive;
+}
+
+.font-calligraphy {
+  font-family: 'Alex Brush', cursive;
+}
+
+.font-display-classic {
+  font-family: 'Cinzel', serif;
+}
+
+/* Deep Plum Purple Matte Background with Subtle, Tiny Sparkling Stardust */
+.plum-sparkle-bg {
+  background-color: #140513;
+  background-image: 
+    /* Subtle depth gradients of deep plum */
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(68, 22, 62, 0.45), transparent 70%),
+    radial-gradient(ellipse 60% 50% at 50% 120%, rgba(52, 16, 48, 0.4), transparent 70%),
+    /* Tiny sparkling stardust layer 1 (delicate champagne gold micro-dots) */
+    radial-gradient(1px 1px at 35px 45px, rgba(236, 200, 128, 0.45) 50%, transparent 100%),
+    radial-gradient(1.2px 1.2px at 120px 85px, rgba(255, 244, 217, 0.4) 50%, transparent 100%),
+    radial-gradient(0.8px 0.8px at 210px 160px, rgba(236, 200, 128, 0.35) 50%, transparent 100%),
+    radial-gradient(1.2px 1.2px at 285px 230px, rgba(255, 248, 230, 0.3) 50%, transparent 100%),
+    radial-gradient(1px 1px at 80px 290px, rgba(236, 200, 128, 0.4) 50%, transparent 100%),
+    /* Tiny sparkling stardust layer 2 */
+    radial-gradient(0.9px 0.9px at 170px 370px, rgba(236, 200, 128, 0.3) 50%, transparent 100%),
+    radial-gradient(1.4px 1.4px at 240px 420px, rgba(255, 240, 200, 0.38) 50%, transparent 100%),
+    radial-gradient(1px 1px at 60px 480px, rgba(236, 200, 128, 0.32) 50%, transparent 100%);
+  background-size: 100% 100%, 100% 100%, 340px 340px, 340px 340px, 340px 340px, 340px 340px, 340px 340px, 340px 340px, 340px 340px, 340px 340px;
+}
+
+/* Luxury Matte Plum Stationery Card */
+.plum-card {
+  background-color: #240C22;
+  background-image: 
+    radial-gradient(ellipse 90% 60% at 50% 0%, rgba(72, 24, 66, 0.42), transparent 75%),
+    radial-gradient(circle at 50% 100%, rgba(48, 14, 44, 0.35), transparent 70%);
+  box-shadow: 
+    0 16px 48px rgba(8, 2, 8, 0.72),
+    0 4px 16px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 236, 190, 0.14);
+}
+
+.gold-foil-text {
+  background: linear-gradient(135deg, #ECC880 0%, #FFF4D9 30%, #D4AF37 60%, #E8C37B 85%, #B88937 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.gold-border {
+  border-color: rgba(236, 200, 128, 0.32);
+}
+
+.gold-border-double {
+  border: 1px solid rgba(236, 200, 128, 0.45);
+  outline: 1px solid rgba(236, 200, 128, 0.22);
+  outline-offset: -6px;
+}
+
+/* 3D Envelope Perspective Utilities */
+.perspective-1400 {
+  perspective: 1400px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Wax Seal realism in Champagne Gold */
+.wax-seal {
+  background: radial-gradient(circle at 35% 35%, #FFF4D9 0%, #ECC880 35%, #D4AF37 68%, #8E6B2A 100%);
+  box-shadow: 
+    0 8px 24px rgba(16, 5, 15, 0.65),
+    inset 0 2px 5px rgba(255, 250, 235, 0.8),
+    inset 0 -3px 8px rgba(70, 45, 10, 0.55);
+}
+
+/* Smooth scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #140513;
+}
+::-webkit-scrollbar-thumb {
+  background: #462242;
+  border: 1px solid rgba(236, 200, 128, 0.25);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #A8833C;
+}
+
+/* Luxury Stationery Scroll Container */
+.stationery-scroller {
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
+  overscroll-behavior-y: contain;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(236, 200, 128, 0.3) transparent;
+}
+.stationery-scroller::-webkit-scrollbar {
+  width: 4px;
+}
+.stationery-scroller::-webkit-scrollbar-track {
+  background: transparent;
+}
+.stationery-scroller::-webkit-scrollbar-thumb {
+  background: rgba(236, 200, 128, 0.3);
+  border-radius: 9999px;
+}
+.stationery-scroller::-webkit-scrollbar-thumb:hover {
+  background: #ECC880;
+}
+
