@@ -3,10 +3,11 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 import {defineConfig} from 'vite';
 
-export default defineConfig(({ command, mode }) => {
-  // GitHub Pages repository subpath for production builds; '/' for local dev server
-  const isProduction = command === 'build' || mode === 'production';
-  const base = process.env.VITE_BASE_PATH || (isProduction ? '/Wedding-Church-and-Reception/' : '/');
+export default defineConfig(() => {
+  // Use repository subpath when building in GitHub Actions or when VITE_BASE_PATH is explicitly passed
+  // In Google AI Studio (development & preview), use root '/' so the preview renders directly
+  const isGitHubActions = process.env.GITHUB_ACTIONS === 'true';
+  const base = process.env.VITE_BASE_PATH || (isGitHubActions ? '/Wedding-Church-and-Reception/' : '/');
 
   return {
     base,
@@ -17,6 +18,9 @@ export default defineConfig(({ command, mode }) => {
       },
     },
     server: {
+      host: '0.0.0.0',
+      port: 3000,
+      allowedHosts: true as const,
       // HMR is disabled in AI Studio via DISABLE_HMR env var.
       // Do not modify—file watching is disabled to prevent flickering during agent edits.
       hmr: process.env.DISABLE_HMR !== 'true',
