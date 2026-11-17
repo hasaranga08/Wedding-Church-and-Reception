@@ -4,10 +4,9 @@ import path from 'path';
 import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
-  // Use repository subpath when building in GitHub Actions or when VITE_BASE_PATH is explicitly passed
-  // In Google AI Studio (development & preview), use root '/' so the preview renders directly
-  const isGitHubActions = process.env.GITHUB_ACTIONS === 'true';
-  const base = process.env.VITE_BASE_PATH || (isGitHubActions ? '/Wedding-Church-and-Reception/' : '/');
+  // Use root '/' for custom domain (hrweddinginvite.srilankadigitalinvitations.lk) and AI Studio preview.
+  // Allow optional override via VITE_BASE_PATH if ever deployed to a subpath.
+  const base = process.env.VITE_BASE_PATH || '/';
 
   return {
     base,

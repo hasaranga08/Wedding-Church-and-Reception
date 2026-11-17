@@ -36,7 +36,7 @@ jobs:
       - name: Build production bundle
         run: npm run build
         env:
-          VITE_BASE_PATH: '/Wedding-Church-and-Reception/'
+          VITE_BASE_PATH: '/'
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
