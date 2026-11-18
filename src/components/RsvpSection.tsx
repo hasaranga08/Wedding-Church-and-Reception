@@ -4,7 +4,7 @@ import { Send, MessageCircle, ExternalLink, Edit3, ArrowRight } from 'lucide-rea
 
 /**
  * Section 5 – RSVP
- * - Destination WhatsApp Number: +94766148615
+ * - Destination WhatsApp Number: +94764809999
  * - Fields:
  *   1. Guest Name (required)
  *   2. Will you be attending? (Yes, happily accepting / Sorry, unable to attend)
@@ -25,7 +25,7 @@ interface RsvpEntry {
 }
 
 const STORAGE_KEY = 'roshini_hasaranga_rsvp_submissions';
-const WHATSAPP_PHONE = '94766148615';
+const WHATSAPP_PHONE = '94764809999';
 
 export const RsvpSection: React.FC = () => {
   const [guestName, setGuestName] = useState('');
@@ -75,21 +75,25 @@ export const RsvpSection: React.FC = () => {
     guestsCount: string,
     wishes: string
   ) => {
-    const finalGuests = attendance === 'Yes, happily accepting' ? (guestsCount || '1') : '0';
+    const isAttending = attendance === 'Yes, happily accepting';
+    const finalGuests = isAttending ? (guestsCount || '1') : '0';
     const finalMessage = wishes.trim() ? wishes.trim() : 'None';
+    const greeting = isAttending
+      ? 'Hello! I would like to confirm my attendance for the wedding of Roshini & Hasaranga.'
+      : 'Hello! Thank you for the invitation to the wedding of Roshini & Hasaranga.';
 
     return [
-      'Wedding RSVP – Roshini & Hasaranga',
+      'Wedding Church & Reception RSVP',
       '',
-      `Guest Name: ${name.trim()}`,
+      greeting,
       '',
-      `Attendance: ${attendance}`,
-      '',
-      `Number of Guests: ${finalGuests}`,
-      '',
+      `Name: ${name.trim()}`,
+      `Number of guests: ${finalGuests}`,
+      `Attendance confirmation: ${attendance}`,
       `Message: ${finalMessage}`,
-      '',
       'Wedding Date: 28th December 2026',
+      '',
+      'Thank you!',
     ].join('\n');
   };
 
@@ -184,7 +188,7 @@ export const RsvpSection: React.FC = () => {
           </h3>
 
           <p className="font-serif-luxury text-sm text-[#FAF6EE]/85 leading-relaxed">
-            Please make sure to tap or click <span className="text-[#ECC880] font-semibold">Send</span> inside WhatsApp so your response is delivered directly to Roshini &amp; Hasaranga (+94 76 614 8615).
+            Please make sure to tap or click <span className="text-[#ECC880] font-semibold">Send</span> inside WhatsApp so your response is delivered directly to Roshini &amp; Hasaranga (+94 76 480 9999).
           </p>
 
           {/* Response summary */}
@@ -333,7 +337,7 @@ export const RsvpSection: React.FC = () => {
               <Send className="w-4 h-4 text-[#140513]" />
             </button>
             <p className="mt-2 text-center text-[11px] font-serif-luxury italic text-[#ECC880]/75">
-              Clicking Send RSVP prepares your response and opens WhatsApp to +94 76 614 8615
+              Clicking Send RSVP prepares your response and opens WhatsApp to +94 76 480 9999
             </p>
           </div>
         </form>
