@@ -63,6 +63,7 @@ export const EnvelopeVideoExperience: React.FC<EnvelopeVideoExperienceProps> = (
     }
 
     if (!isOpen) {
+      audioManager.stop();
       setStage('initial');
       hasStartedRef.current = false;
       hasTriggeredEndRef.current = false;

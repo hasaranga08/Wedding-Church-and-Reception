@@ -36,12 +36,12 @@ export const ThankYouSection: React.FC = () => {
 
       <GoldFlourishDivider className="my-6 opacity-75" />
 
-      {/* With love, Roshini & Chamod */}
-      <div className="my-6 space-y-2">
+      {/* With love, Roshini & Hasaranga */}
+      <div className="my-6 space-y-2 flex flex-col items-center">
         <p className="font-serif-luxury text-sm italic text-[#ECC880]/90 tracking-widest uppercase">
           With love,
         </p>
-        <p className="font-calligraphy text-4xl sm:text-5xl gold-foil-text tracking-wide py-1">
+        <p className="font-calligraphy text-[26px] min-[360px]:text-[30px] min-[400px]:text-[34px] sm:text-5xl gold-foil-text tracking-normal sm:tracking-wide leading-tight whitespace-nowrap text-center px-1 py-1">
           Roshini &amp; Hasaranga
         </p>
       </div>

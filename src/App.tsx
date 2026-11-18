@@ -11,6 +11,7 @@ import { ThankYouSection } from './components/ThankYouSection';
 import { AudioPlayer } from './components/AudioPlayer';
 import { FloatingControls } from './components/FloatingControls';
 import { getAssetUrl } from './utils/assets';
+import { audioManager } from './utils/audioManager';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -80,6 +81,15 @@ export default function App() {
     setIsEnvelopeOpen(true);
     updateBounds();
 
+    // Push a lightweight history entry so browser Back returns to the unopened envelope & stops music
+    try {
+      if (!window.history.state?.envelopeOpen) {
+        window.history.pushState({ envelopeOpen: true }, '');
+      }
+    } catch {
+      // Ignore if history API is restricted
+    }
+
     if (stationeryContainerRef.current) {
       stationeryContainerRef.current.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
     }
@@ -100,12 +110,39 @@ export default function App() {
     }, 60);
   };
 
-  const handleReplayEnvelope = () => {
+  const handleReplayEnvelope = useCallback(() => {
+    // Immediately pause background music and reset playback position to 00:00 (preserving mute preference)
+    audioManager.stop();
     setIsEnvelopeOpen(false);
     if (stationeryContainerRef.current) {
       stationeryContainerRef.current.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
     }
-  };
+    try {
+      if (window.history.state?.envelopeOpen) {
+        window.history.replaceState(null, '');
+      }
+    } catch {
+      // Ignore if history API is restricted
+    }
+  }, []);
+
+  // Stop & reset music and return to initial envelope screen if user presses browser Back button
+  useEffect(() => {
+    if (!isEnvelopeOpen) return;
+
+    const handlePopState = () => {
+      audioManager.stop();
+      setIsEnvelopeOpen(false);
+      if (stationeryContainerRef.current) {
+        stationeryContainerRef.current.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
+      }
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+    };
+  }, [isEnvelopeOpen]);
 
   // Scroll animations: elements smoothly fade-and-rise as user scrolls down inside container
   useEffect(() => {
